@@ -1,48 +1,22 @@
-# Astro Starter Kit: Basics
+# Prueba tecnica koplik 🧑🏽‍💻
 
-```sh
-npm create astro@latest -- --template basics
-```
+**Desarrollar una pequeña aplicación web de Preguntas y Respuestas orientada a
+estudiantes de medicina. La aplicación tendrá dos partes principales:**
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Frontend en Astro + React + Typescript:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Una interfaz donde se muestran preguntas y se permiten respuestas.
+- Diseño simple y funcional sin necesidad de una gestión global de estado (puedes usar el estado local de cada componente).
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Backend (API) en Astro:
 
-## 🚀 Project Structure
+- Una API simple que provea endpoints para obtener las preguntas, enviar respuestas y, opcionalmente, almacenar resultados.
+- La API deberá ofrecer endpoints para obtener preguntas y para simular la validación de respuestas (no es necesario guardar datos).
 
-Inside of your Astro project, you'll see the following folders and files:
+## Pasos para ejecutar el proyecto:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- `git clone https://github.com/DiegoVanegas03/prueba-tecnica-koplik`
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- `pnpm install`
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `pnpm run dev`
