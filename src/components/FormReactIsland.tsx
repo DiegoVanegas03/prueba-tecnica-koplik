@@ -1,26 +1,12 @@
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Form,
-  FormField,
-  FormLabel,
-  FormItem,
-  FormControl,
-  FormMessage,
-} from "@/components/ui/form";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Form, FormField } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useMemo } from "react";
 import { toast } from "sonner";
-
-interface Question {
-  type: "open" | "single_choice" | "multiple_choice" | "matching";
-  label: string;
-  options?: string[];
-  optionsMatch?: string[];
-}
+import type { Question } from "@/lib/types";
+import FieldOpen from "@/components/CustomField";
 
 interface FormReactIslandProps {
   setProgress: (currentProgress: number) => void;
@@ -64,28 +50,31 @@ const FormReactIsland = ({ setProgress, questions }: FormReactIslandProps) => {
   }
 
   return (
-    <Card className="max-w-6xl w-full block h-full pt-2 overflow-y-scroll">
-      <a
-        href="/"
-        className="flex gap-1 items-center italic text-destructive hover:opacity-50"
-      >
-        <svg
-          className="w-5 h-5 ms-2 rotate-180"
-          aria-hidden="true"
-          fill="none"
-          viewBox="0 0 14 10"
+    <Card className="max-w-6xl w-full block h-full pt-2 gap-2 overflow-y-scroll">
+      <CardHeader className="flex-row relative p-0">
+        <a
+          href="/"
+          className="flex gap-1 absolute top-0 left-0 items-center italic text-destructive hover:opacity-50"
         >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M1 5h12m0 0L9 1m4 4L9 9"
-          />
-        </svg>
-        Volver
-      </a>
-      <CardContent className="py-2">
+          <svg
+            className="w-5 h-5 ms-2 rotate-180"
+            aria-hidden="true"
+            fill="none"
+            viewBox="0 0 14 10"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9"
+            />
+          </svg>
+          Volver
+        </a>
+        <p className="text-center w-full font-title text-2xl">Cuestionario:</p>
+      </CardHeader>
+      <CardContent className="py-2 px-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             {questions.map((question, index) => (
@@ -94,20 +83,10 @@ const FormReactIsland = ({ setProgress, questions }: FormReactIslandProps) => {
                 control={form.control}
                 name={`question-${index}`}
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      {question.label}
-                      <span className="font-extrabold">({question.type})</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input type="text" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                  <FieldOpen question={question} field={field} />
                 )}
               />
             ))}
-
             <Button className="w-full cursor-pointer" type="submit">
               Revisar cuestionario
             </Button>
