@@ -1,17 +1,23 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
-import { Image } from "astro:assets";
-import formulario1 from "@/assets/images/formulario-1-wallpaper.webp";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import LinkCard from "@/components/LinkCard.astro";
+
+const formularios = [
+  {
+    title: "Sistema Nervioso Humano",
+    slug: "sistema-nervioso-humano",
+    miniature: "sistema-nervioso.webp",
+  },
+  {
+    title: "Sistema Digestivo Humano",
+    slug: "sistema-digestivo-humano",
+    miniature: "sistema-digestivo.webp",
+  },
+];
 ---
 
 <Layout title="Prueba tecnica">
-  <div class="bg-fixed-pked"></div>
   <main class="flex items-center justify-center h-full">
     <Card className="max-w-4xl w-full">
       <CardHeader>
@@ -30,31 +36,15 @@ import formulario1 from "@/assets/images/formulario-1-wallpaper.webp";
       <CardContent
         className="grid grid-cols-2 gap-3 place-content-center place-items-center"
       >
-        <a
-          href="/formulario-1"
-          class="transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
-        >
-          <Card className="pt-0 drop-shadow-2xl">
-            <CardContent className="p-0">
-              <Image
-                src={formulario1}
-                class="rounded-t-xl"
-                width="300"
-                alt="formulario-1"
-              />
-            </CardContent>
-            <CardFooter
-              className="text-sm font-bold w-full justify-center italic "
-            >
-              <span class="underline text-blue-600"> Primer formulario </span>
-              - 🧠</CardFooter
-            >
-          </Card>
-        </a>
-
-        <Card>
-          <CardContent> tarjeta 2 </CardContent>
-        </Card>
+        {
+          formularios.map((form) => (
+            <LinkCard
+              title={form.title}
+              slug={form.slug}
+              miniature={form.miniature}
+            />
+          ))
+        }
       </CardContent>
     </Card>
   </main>
