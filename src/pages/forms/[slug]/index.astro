@@ -1,14 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import FormReactIsland from "@/components/FormReactIsland";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Toaster } from "@/components/ui/sonner";
-
+import type { ResponseApi } from "@/lib/types";
 export function getStaticPaths() {
   return [
     { params: { slug: "sistema-digestivo-humano" } },
@@ -16,136 +9,29 @@ export function getStaticPaths() {
   ];
 }
 
-const simulatedResponseApi = {
-  title: "Sistema Nervioso Humano",
-  description: `El Sistema Nervioso Humano es una de las estructuras más complejas
-              y esenciales del cuerpo, encargado de coordinar y regular todas
-              las funciones vitales. La interacción del sistema nervioso con
-              otros sistemas del cuerpo. Enfermedades neurológicas comunes y su
-              impacto en la salud. El objetivo de esta evaluación es reforzar la
-              comprensión del papel fundamental que juega el sistema nervioso en
-              el control de los procesos físicos y cognitivos del ser humano. 🚀`,
-  questions: [
-    {
-      type: "open",
-      label:
-        "¿Cuál es la función principal del sistema nervioso en el cuerpo humano?",
-    },
-    {
-      type: "single_choice",
-      label:
-        "¿Cuál de las siguientes estructuras forma parte del sistema nervioso central?",
-      options: [
-        "Médula espinal",
-        "Nervios periféricos",
-        "Glándulas endocrinas",
-        "Músculos esqueléticos",
-      ],
-    },
-    {
-      type: "multiple_choice",
-      label: "¿Cuáles de las siguientes son funciones del sistema nervioso?",
-      options: [
-        "Controlar los movimientos del cuerpo",
-        "Regular la digestión de los alimentos",
-        "Transportar oxígeno en la sangre",
-        "Interpretar estímulos sensoriales",
-      ],
-    },
-    {
-      type: "open",
-      label:
-        "Explica la diferencia entre el sistema nervioso central y el sistema nervioso periférico.",
-    },
-    {
-      type: "single_choice",
-      label: "¿Cuál es la unidad funcional del sistema nervioso?",
-      options: ["Neurona", "Sinapsis", "Axón", "Cerebelo"],
-    },
-    {
-      type: "open",
-      label:
-        "¿Qué es una sinapsis y cuál es su función en la comunicación neuronal?",
-    },
-    {
-      type: "multiple_choice",
-      label:
-        "¿Cuáles de las siguientes enfermedades afectan el sistema nervioso?",
-      options: ["Alzheimer", "Diabetes", "Esclerosis múltiple", "Parkinson"],
-    },
-    {
-      type: "matching",
-      label: "Relaciona cada estructura con su función correspondiente:",
-      options: [
-        "Cerebelo",
-        "Hipotálamo",
-        "Tronco encefálico",
-        "Médula espinal",
-      ],
-      optionsMatch: [
-        "Coordina movimientos y equilibrio",
-        "Regula la temperatura y el hambre",
-        "Controla el ritmo cardíaco",
-        "Transmite señales entre el cerebro y el cuerpo",
-      ],
-    },
-    {
-      type: "open",
-      label:
-        "Describe cómo el sistema nervioso interactúa con el sistema muscular para generar movimiento.",
-    },
-    {
-      type: "single_choice",
-      label:
-        "¿Cuál de los siguientes neurotransmisores es clave en la comunicación entre neuronas?",
-      options: ["Adrenalina", "Dopamina", "Insulina", "Hemoglobina"],
-    },
-  ],
-};
+const { slug } = Astro.params;
 
-const { title, description, questions } = simulatedResponseApi;
-
-let progressForm = 0;
-
-//actualiza el estado de la barra de progreso
-function setActualProgressForm(currentProgress: number) {
-  progressForm = currentProgress;
-}
+const response = await fetch(`${Astro.url.origin}/forms/api/${slug}.json`);
+const responseJson = await response.json();
+const { title, description, questions, thumbline } =
+  responseJson.data as ResponseApi;
 ---
 
 <Layout title={title}>
   <main class="flex flex-col gap-6 items-center w-full py-6 px-2 max-h-full">
-    <Card className="max-w-6xl w-full p-0">
-      <CardHeader className="flex-row gap-4 p-0 pr-2">
-        <img
-          src={`/sistema-nervioso.webp`}
-          transition:name="img-formulario-1"
-          class="rounded-l-xl"
-          width="130"
-          alt="formulario-1"
-        />
-        <div class="py-2 space-y-2">
-          <CardTitle className="font-title italic tracking-widest text-3xl">
-            {title}
-          </CardTitle>
-          <CardDescription className="text-gray-700 text-sm flex gap-2">
-            {description}
-          </CardDescription>
-          <div class="w-full bg-gray-200 rounded-full h-1 overflow-hidden">
-            <div
-              class="bg-blue-500 h-full transition-all duration-300"
-              style={{ width: `${progressForm}%` }}
-            >
-            </div>
-          </div>
-        </div>
-      </CardHeader>
-    </Card>
     <FormReactIsland
-      setProgress={setActualProgressForm}
+      title={title}
+      description={description}
       questions={questions}
       client:load
-    />
-    <Toaster client:load />
+    >
+      <img
+        src={`/${thumbline}`}
+        transition:name="sistema-nervioso-humano-transition"
+        class="rounded-l-xl"
+        width="130"
+        alt="formulario-1"
+      /></FormReactIsland
+    >
   </main>
 </Layout>

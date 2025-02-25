@@ -1,0 +1,186 @@
+{
+    "sistema-nervioso-humano": {
+      "thumbline" : "sistema-nervioso.webp",
+      "title": "Sistema Nervioso Humano",
+      "description": "El Sistema Nervioso Humano es una de las estructuras más complejas y esenciales del cuerpo, encargado de coordinar y regular todas las funciones vitales. La interacción del sistema nervioso con otros sistemas del cuerpo. Enfermedades neurológicas comunes y su impacto en la salud. El objetivo de esta evaluación es reforzar la comprensión del papel fundamental que juega el sistema nervioso en el control de los procesos físicos y cognitivos del ser humano. 🚀",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "open",
+          "label": "¿Cuál es la función principal del sistema nervioso en el cuerpo humano?"
+        },
+        {
+          "id": "q2",
+          "type": "single_choice",
+          "label": "¿Cuál de las siguientes estructuras forma parte del sistema nervioso central?",
+          "options": [
+            "Médula espinal",
+            "Nervios periféricos",
+            "Glándulas endocrinas",
+            "Músculos esqueléticos"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "multiple_choice",
+          "label": "¿Cuáles de las siguientes son funciones del sistema nervioso?",
+          "options": [
+            "Controlar los movimientos del cuerpo",
+            "Regular la digestión de los alimentos",
+            "Transportar oxígeno en la sangre",
+            "Interpretar estímulos sensoriales"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "open",
+          "label": "Explica la diferencia entre el sistema nervioso central y el sistema nervioso periférico."
+        },
+        {
+          "id": "q5",
+          "type": "single_choice",
+          "label": "¿Cuál es la unidad funcional del sistema nervioso?",
+          "options": ["Neurona", "Sinapsis", "Axón", "Cerebelo"]
+        },
+        {
+          "id": "q6",
+          "type": "open",
+          "label": "¿Qué es una sinapsis y cuál es su función en la comunicación neuronal?"
+        },
+        {
+          "id": "q7",
+          "type": "multiple_choice",
+          "label": "¿Cuáles de las siguientes enfermedades afectan el sistema nervioso?",
+          "options": ["Alzheimer", "Diabetes", "Esclerosis múltiple", "Parkinson"]
+        },
+        {
+          "id": "q8",
+          "type": "matching",
+          "label": "Relaciona cada estructura con su función correspondiente:",
+          "options": [
+            "Cerebelo",
+            "Hipotálamo",
+            "Tronco encefálico",
+            "Médula espinal"
+          ],
+          "optionsMatch": [
+            "Coordina movimientos y equilibrio",
+            "Regula la temperatura y el hambre",
+            "Controla el ritmo cardíaco",
+            "Transmite señales entre el cerebro y el cuerpo"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "open",
+          "label": "Describe cómo el sistema nervioso interactúa con el sistema muscular para generar movimiento."
+        },
+        {
+          "id": "q10",
+          "type": "single_choice",
+          "label": "¿Cuál de los siguientes neurotransmisores es clave en la comunicación entre neuronas?",
+          "options": ["Adrenalina", "Dopamina", "Insulina", "Hemoglobina"]
+        }
+      ]
+    },
+    "sistema-digestivo-humano": {
+      "thumbline": "sistema-digestivo.webp",
+      "title": "Sistema Digestivo Humano",
+      "description": "El Sistema Digestivo Humano es el encargado de la digestión y absorción de nutrientes esenciales para el funcionamiento del organismo. En este examen, exploraremos las principales estructuras del sistema digestivo, sus funciones y su relación con otros sistemas del cuerpo. También analizaremos enfermedades comunes y su impacto en la salud. El objetivo es reforzar la comprensión de cómo el sistema digestivo transforma los alimentos en energía y nutrientes para el cuerpo. 🍎",
+      "questions": [
+        {
+          "id": "q1",
+          "type": "open",
+          "label": "¿Cuál es la función principal del sistema digestivo en el cuerpo humano?"
+        },
+        {
+          "id": "q2",
+          "type": "single_choice",
+          "label": "¿En qué órgano comienza la digestión de los carbohidratos?",
+          "options": [
+            "Estómago",
+            "Boca",
+            "Intestino delgado",
+            "Hígado"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "multiple_choice",
+          "label": "¿Cuáles de los siguientes órganos forman parte del sistema digestivo?",
+          "options": [
+            "Esófago",
+            "Riñón",
+            "Hígado",
+            "Páncreas"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "open",
+          "label": "Explica la diferencia entre digestión mecánica y digestión química."
+        },
+        {
+          "id": "q5",
+          "type": "single_choice",
+          "label": "¿Cuál es la principal función del intestino delgado?",
+          "options": [
+            "Almacenar los alimentos",
+            "Absorber los nutrientes",
+            "Producir enzimas digestivas",
+            "Regular el equilibrio hídrico"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "open",
+          "label": "Describe el papel del hígado en el proceso digestivo."
+        },
+        {
+          "id": "q7",
+          "type": "multiple_choice",
+          "label": "¿Cuáles de las siguientes enfermedades afectan el sistema digestivo?",
+          "options": [
+            "Gastritis",
+            "Colitis",
+            "Insuficiencia renal",
+            "Reflujo gastroesofágico"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "matching",
+          "label": "Relaciona cada órgano con su función correspondiente:",
+          "options": [
+            "Estómago",
+            "Intestino grueso",
+            "Hígado",
+            "Páncreas"
+          ],
+          "optionsMatch": [
+            "Segrega jugos gástricos para la digestión",
+            "Absorbe agua y forma las heces",
+            "Produce bilis para la digestión de grasas",
+            "Secreta enzimas digestivas"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "open",
+          "label": "Describe cómo interactúa el sistema digestivo con el sistema circulatorio para distribuir nutrientes en el cuerpo."
+        },
+        {
+          "id": "q10",
+          "type": "single_choice",
+          "label": "¿Cuál de las siguientes estructuras evita que los alimentos entren en la tráquea al tragar?",
+          "options": [
+            "Epiglotis",
+            "Esofágico inferior",
+            "Diafragma",
+            "Laringe"
+          ]
+        }
+      ]
+    }
+  }
+  
