@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 import memorizedResponse from "@/pages/forms/api/memorizedForms.json";
-import { type Question, type ResponseApi } from "@/lib/types";
+import { type AnswerType, type Question, type ResponseApi } from "@/lib/types";
 
 // Esto es muy importante para que clientes externos a astro consuman el endpoint.
 export const prerender = false;
@@ -20,7 +20,6 @@ const mensajesReconfortantes = [
 ];
 
 type Slug = "sistema-nervioso-humano" | "sistema-digestivo-humano";
-type AnswerType = string | string[] | string[][];
 interface QuestionsAnsweredType extends Question {
   answer: AnswerType;
 }

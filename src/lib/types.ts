@@ -6,6 +6,9 @@ export interface Question {
   optionsMatch?: string[];
 }
 
+export type AnswerType = string | string[] | string[][];
+
+
 export interface ResponseApi {
   thumbline: string;
   title: string;

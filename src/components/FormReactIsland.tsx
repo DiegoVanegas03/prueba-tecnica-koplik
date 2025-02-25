@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast, Toaster } from "sonner";
-import type { Question } from "@/lib/types";
+import type { Question, AnswerType } from "@/lib/types";
 import CustomField from "@/components/CustomField";
 import ResultsModal from "./ResultsModal";
 import { useEffect, useState } from "react";
@@ -22,6 +22,11 @@ interface FormReactIslandProps {
   description: string;
   children?: React.ReactNode;
   questions: Question[];
+}
+
+interface ResponseForm {
+  calificacion: number;
+  badAnswers: Record<string, AnswerType>;
 }
 
 const getZSchemaValidations = (
@@ -56,7 +61,7 @@ const FormReactIsland = ({
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState(false);
 
-  const [responseAPI, setResponseApi] = useState({
+  const [responseAPI, setResponseApi] = useState<ResponseForm>({
     calificacion: 0,
     badAnswers: {},
   });
@@ -207,18 +212,33 @@ const FormReactIsland = ({
                 className="space-y-8"
               >
                 {questions.map((question, index) => (
-                  <FormField
-                    key={question.id}
-                    control={form.control}
-                    name={`question-${question.id}`}
-                    render={({ field }) => (
-                      <CustomField
-                        question={question}
-                        numberQuestion={index + 1}
-                        field={field}
-                      />
-                    )}
-                  />
+                  <div key={question.id} className="space-y-2">
+                    <FormField
+                      control={form.control}
+                      name={`question-${question.id}`}
+                      render={({ field }) => (
+                        <CustomField
+                          question={question}
+                          numberQuestion={index + 1}
+                          field={field}
+                        />
+                      )}
+                    />
+                    {visibleErrors &&
+                      responseAPI.badAnswers &&
+                      responseAPI.badAnswers[question.id] && (
+                        <p className="italic text-destructive text-sm">
+                          <span className="font-bold">
+                            La respuesta correcta seria :{" "}
+                          </span>
+                          {Array.isArray(responseAPI.badAnswers[question.id])
+                            ? JSON.stringify(
+                                responseAPI.badAnswers[question.id]
+                              )
+                            : responseAPI.badAnswers[question.id]}
+                        </p>
+                      )}
+                  </div>
                 ))}
                 <Button className="w-full cursor-pointer" type="submit">
                   Revisar cuestionario
