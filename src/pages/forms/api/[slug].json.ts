@@ -8,10 +8,17 @@ export const GET: APIRoute = ({ params }) => {
     | "sistema-nervioso-humano"
     | "sistema-digestivo-humano";
 
+  const filteredResponse = {
+    ...memorizedResponse[slug],
+    questions: memorizedResponse[slug].questions.map(
+      ({ answer, ...rest }) => rest
+    ),
+  };
+
   return new Response(
     JSON.stringify({
       message: "Exito",
-      data: memorizedResponse[slug],
+      data: filteredResponse,
     })
   );
 };
